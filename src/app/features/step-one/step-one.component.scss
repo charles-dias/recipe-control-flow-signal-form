@@ -1,0 +1,17 @@
+/* Removido: @import "~bootstrap/dist/css/bootstrap.min.css";
+   Alternativas (prefira uma delas):
+   1) Importar globalmente em angular.json:
+      "styles": [
+        "node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "src/styles.scss"
+      ]
+   2) Ou importar em src/styles.scss:
+      @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+   3) Se insiste em importar aqui e ainda falhar, tente:
+      @import 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+*/
+
+/* Ajustes locais do componente */
+.card {
+  border-radius: 0.5rem;
+}

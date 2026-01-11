@@ -1,0 +1,41 @@
+<div class="container my-3">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title mb-3">Resumo - Dados da Receita</h3>
+
+      <dl class="row">
+        <dt class="col-sm-3">Nome</dt>
+        <dd class="col-sm-9">{{ data.name || '-' }}</dd>
+
+        <dt class="col-sm-3">Ingredientes</dt>
+        <dd class="col-sm-9">{{ data.ingredients || '-' }}</dd>
+
+        <dt class="col-sm-3">Instruções</dt>
+        <dd class="col-sm-9">{{ data.instructions || '-' }}</dd>
+
+        <dt class="col-sm-3">Valor Total</dt>
+        <dd class="col-sm-9">{{ data.totalValue !== null ? (data.totalValue | number:'1.2-2') : '-' }}</dd>
+
+        <dt class="col-sm-3">Observações</dt>
+        <dd class="col-sm-9">{{ data.notes || '-' }}</dd>
+
+        <dt class="col-sm-3">Autor</dt>
+        <dd class="col-sm-9">{{ data.author || '-' }}</dd>
+      </dl>
+
+      <div *ngIf="submitError()" class="alert alert-danger" role="alert">
+        {{ submitError() }}
+      </div>
+
+      <div class="d-flex gap-2">
+        <button class="btn btn-outline-primary" (click)="goBackToStepOne()">Voltar ao Passo 1</button>
+        <button class="btn btn-secondary" (click)="goToEditorA()">Ir para Editor A</button>
+        <button class="btn btn-secondary" (click)="goToEditorB()">Ir para Editor B</button>
+        <button class="btn btn-success" (click)="submitForm()" [disabled]="isLoading()">
+          <span *ngIf="!isLoading()">Enviar Receita</span>
+          <span *ngIf="isLoading()">Enviando...</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
